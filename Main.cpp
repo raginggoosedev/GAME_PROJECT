@@ -1,5 +1,7 @@
 #include <iostream>
-#include <glad/glad.h>
+#include </home/apeman/Code/Test/GAME_PROJECT/Libraries/include/glad/glad.h>
+//#include <GLES2/gl2.h>
+//#include <EGL/egl.h>
 #include <GLFW/glfw3.h>
 
 int main() 
@@ -20,8 +22,10 @@ int main()
 		return -1;
 	}
 
-	glfwMakeContextCurrent(window);
+	
 
+	glfwMakeContextCurrent(window);
+	
 	while (!glfwWindowShouldClose(window))
 	{
 		glfwPollEvents();
