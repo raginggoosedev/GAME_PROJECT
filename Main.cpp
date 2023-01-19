@@ -43,6 +43,7 @@ int main()
 
 	while (!glfwWindowShouldClose(window))
 	{
+		// Input
 		processInput(window);
 
 		glfwSwapBuffers(window);
