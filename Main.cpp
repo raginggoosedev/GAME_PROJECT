@@ -2,32 +2,37 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-int main() 
+int main(void) 
 {
 	//Initilizes
-	glfwInit();
+	if (!glfwInit()) {
+		exit(EXIT_FAILURE);
+	}
 
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	GLFWwindow* window = glfwCreateWindow(800, 800, "Programming Project", NULL, NULL);
 
-	if (window == NULL)
+	if (!window)
 	{
-		std::cout << "The window failed to be created" << std::endl;
 		glfwTerminate();
-		return -1;
+		exit(EXIT_FAILURE);
 	}
 
 	glfwMakeContextCurrent(window);
+	glfwSwapInterval(1);
 
 	while (!glfwWindowShouldClose(window))
 	{
+
+		//glClear(GL_COLOR_BUFFER_BIT);
+
+		//glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
 
 	glfwDestroyWindow(window);
 	glfwTerminate();
-	return 0;
+	exit(EXIT_SUCCESS);
 }
