@@ -6,6 +6,7 @@ class GameWindow
 {
 private:
 	GLFWwindow* window;
+
 	int height;
 	int width;
 	const char* title;
@@ -16,7 +17,8 @@ public:
 		this->height = height;
 		this->width = width;
 		this->title = title;
-		
+	
+
 		glfwInit();
 		window = glfwCreateWindow(width, height, title, NULL, NULL);
 		glfwMakeContextCurrent(window);
