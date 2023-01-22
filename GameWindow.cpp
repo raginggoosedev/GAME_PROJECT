@@ -152,7 +152,6 @@ public:
 	void setBuffers()
 	{
 		//SET UP BUFFERS
-
 		glGenVertexArrays(1, &VAO);
 		glGenBuffers(1, &VBO);
 
