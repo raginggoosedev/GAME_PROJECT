@@ -4,24 +4,20 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "GameWindow.cpp"
-#include "Player.cpp"
+
 
 int main() 
 {
 
-	GameWindow* window = new GameWindow(800, 800, "Test");
-	Player* player = new Player();
-	
-	
-	//Create triangle
-	
+	GameWindow* window = new GameWindow(800, 800, "Test 2.0");
+
 
 	//MAIN LOOP
 	while (window->isRunning())
 	{
 		window->run();
-		glUseProgram(player->program);
 	}
+
 
 	window->close();
 	return 0;

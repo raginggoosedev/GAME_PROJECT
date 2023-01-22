@@ -10,12 +10,6 @@
     <ClCompile Include="GameWindow.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="ShaderVariables.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">

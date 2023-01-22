@@ -46,7 +46,7 @@ public:
 
 	Player()
 	{
-
+		
 		//Setting up the shaders
 		glGenBuffers(1, &vertexBuffer);
 		glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
