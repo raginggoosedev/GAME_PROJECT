@@ -6,7 +6,7 @@
 #include <iostream>
 
 //TODO: Put all buffer/shader code into seperate class
-
+//TEST
 //CREATES THE SHADERS SOURCE CODE
 //TODO: Move source code into potentially a .h class 
 static const char* vertexShaderSource = "#version 330 core\n"
