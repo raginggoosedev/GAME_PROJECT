@@ -6,12 +6,12 @@ int main()
 {
 	GameWindow* window = new GameWindow(800, 800, "Test 3.0");
 	//MAIN LOOP
-	while (window.isRunning())
+	while (window->isRunning())
 	{
-		window.run();
+		window->run();
 		//window->drawLine();
 	}
 
-	window.close();
+	window->close();
 	return 0;
 }
