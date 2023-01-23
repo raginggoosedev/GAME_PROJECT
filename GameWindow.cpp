@@ -2,14 +2,15 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
+//TODO: Put all buffer/shader code into seperate class
 
 //CREATES THE SHADERS SOURCE CODE
-//TODO: Move shaders to a different class for neatness
+//TODO: Move source code into potentially a .h class 
 static const char* vertexShaderSource = "#version 330 core\n"
 "layout (location = 0) in vec3 aPos;\n"
 "void main()\n"
 "{\n"
-"	gl_Position = vec4(aPos.xm aPos.y, aPos.z, 1.0);\n"
+"	gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
 "}\0";
 
 static const char* fragmentShaderSource = "#version 330 core\n"
@@ -38,7 +39,7 @@ private:
 	{
 		-0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f,
 		0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f,
-		0.5f, 0.5f * float(sqrt(3)) / 3, 0.0f
+		0.5f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f
 	};
 	
 
@@ -49,7 +50,6 @@ public:
 		this->height = height;
 		this->width = width;
 		this->title = title;
-
 		//Intialize GLFW
 		glfwInit();
 		window = glfwCreateWindow(width, height, title, NULL, NULL);
@@ -101,6 +101,7 @@ public:
 
 	void run()
 	{
+		
 		glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		glUseProgram(shaderProgram);

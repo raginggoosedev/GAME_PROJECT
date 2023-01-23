@@ -8,16 +8,12 @@
 
 int main() 
 {
-
-	GameWindow* window = new GameWindow(800, 800, "Test 2.0");
-
-
+	GameWindow* window = new GameWindow(800, 800, "Test 3.0");
 	//MAIN LOOP
 	while (window->isRunning())
 	{
 		window->run();
 	}
-
 
 	window->close();
 	return 0;
