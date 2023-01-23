@@ -1,4 +1,6 @@
-#include <glad/glad.h>
+//#include <glad/glad.h>
+//#include </home/apeman/Code/Test/GAME_PROJECT/Libraries/include/glad/glad.h>
+#include </home/apeman/code/VSCode/GAME_PROJECT/Libraries/include/glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
 
@@ -72,11 +74,14 @@ public:
 	void setHeight(int height)
 	{
 		this->height = height;
+		glfwSetWindowSize(window, width, height);
+		
 	}
 
 	void setWidth(int width)
 	{
 		this->width = width;
+		glfwSetWindowSize(window, width, height);
 	}
 
 	void setTitle(const char* title)
@@ -166,5 +171,12 @@ public:
 
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
+  }
+	void setBackground(int red, int green, int blue)
+	{
+		float r = red/255;
+		float g = green/255;
+		float b = blue/255;
+		glClearColor(r,g,b,1.0f);
 	}
 };
