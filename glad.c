@@ -22,7 +22,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <glad/glad.h>
+//#include <glad/glad.h>
+//#include </home/apeman/code/VSCode/GAME_PROJECT/Libraries/include/glad/glad.h>
+#include </home/apeman/Code/Test/GAME_PROJECT/Libraries/include/glad/glad.h>
 
 static void* get_proc(const char *namez);
 

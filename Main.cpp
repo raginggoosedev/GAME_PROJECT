@@ -3,35 +3,18 @@
 //#include <GLES2/gl2.h>
 //#include <EGL/egl.h>
 #include <GLFW/glfw3.h>
+#include "GameWindow.cpp"
 
 int main() 
 {
-	//Initilizes
-	glfwInit();
-
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-	GLFWwindow* window = glfwCreateWindow(800, 800, "Programming Project", NULL, NULL);
-
-	if (window == NULL)
+	GameWindow* window = new GameWindow(800, 800, "Test 3.0");
+	//MAIN LOOP
+	while (window->isRunning())
 	{
-		std::cout << "The window failed to be created" << std::endl;
-		glfwTerminate();
-		return -1;
+		window->run();
+		//window->drawLine();
 	}
 
-	
-
-	glfwMakeContextCurrent(window);
-	
-	while (!glfwWindowShouldClose(window))
-	{
-		glfwPollEvents();
-	}
-
-	glfwDestroyWindow(window);
-	glfwTerminate();
+	window->close();
 	return 0;
 }
