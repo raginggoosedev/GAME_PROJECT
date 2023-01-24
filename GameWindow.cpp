@@ -1,8 +1,9 @@
 //#include <glad/glad.h>
 //#include </home/apeman/Code/Test/GAME_PROJECT/Libraries/include/glad/glad.h>
-#include </home/apeman/code/VSCode/GAME_PROJECT/Libraries/include/glad/glad.h>
+#include </home/michael/GAME_PROJECT-1/Libraries/include/glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include <math.h>
 
 //TODO: Put all buffer/shader code into seperate class
 
@@ -102,6 +103,10 @@ public:
 	const char* getTitle()
 	{
 		return title;
+	}
+
+	GLFWwindow* getWindow() {
+		return window;
 	}
 
 	void run()
