@@ -10,7 +10,7 @@ void processInput(GameWindow* window) {
 
 int main() 
 {
-	GameWindow* window = new GameWindow(800, 800, "Test 3.0");
+	GameWindow* window = new GameWindow(800, 800, "TEST 3.0");
 	//MAIN LOOP
 	while (window->isRunning())
 	{
