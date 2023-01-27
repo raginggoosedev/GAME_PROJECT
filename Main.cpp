@@ -7,7 +7,13 @@
 
 int main() 
 {
+<<<<<<< Updated upstream
 	GameWindow* window = new GameWindow(800, 800, "Test 3.0");
+=======
+	GameWindow* window = new GameWindow(800, 800, "TEST 3.0");
+	window->setBackground(255,0,255);
+
+>>>>>>> Stashed changes
 	//MAIN LOOP
 	while (window->isRunning())
 	{
