@@ -46,13 +46,6 @@ private:
 	GLuint fragmentShader;
 	GLuint shaderProgram;
 	GLuint VAO, VBO, EBO;
-	
-	float x1 = 0;
-	float y1 = 600;
-	float x2 = 800;
-	float y2 = 600;
-	float x3 = 400;
-	float y3 = 0;
 
 	float convertX(float x) {
 		x = 2.0*x/800.0 - 1.0;
@@ -64,23 +57,93 @@ private:
 		return y;
 	}
 
-	GLfloat vertices[9] =
+	GLfloat vertices[117] =
 	{
-		// -1.0, -1.0, 0.0f,
-		// 0.0f, 1.0f, 0.0f,
-		// 1.0f, -1.0f, 0.0f
-		convertX(x1), convertY(y1), 0.0f,
-		convertX(x2), convertY(y2), 0.0f,
-		convertX(x3), convertY(y3), 0.0f
+		convertX(0), convertY(0), 0.0f,
+		convertX(400), convertY(30), 0.0f,
+		convertX(800), convertY(600), 0.0f,
+
+		//for vertical lines
+		convertX(0), convertY(0), 0.0f,
+		convertX(0),convertY(600), 0.0f,
+
+		convertX(100), convertY(0), 0.0f,
+		convertX(100),convertY(600), 0.0f,
+
+		convertX(200), convertY(0), 0.0f,
+		convertX(200),convertY(600), 0.0f,
+
+		convertX(300), convertY(0), 0.0f,
+		convertX(300),convertY(600), 0.0f,
+
+		convertX(400), convertY(0), 0.0f,
+		convertX(400),convertY(600), 0.0f,
+
+		convertX(500), convertY(0), 0.0f,
+		convertX(500),convertY(600), 0.0f,
+
+		convertX(600), convertY(0), 0.0f,
+		convertX(600),convertY(600), 0.0f,
+
+		convertX(700), convertY(0), 0.0f,
+		convertX(700),convertY(600), 0.0f,
+
+		convertX(800), convertY(0), 0.0f,
+		convertX(800),convertY(600), 0.0f,
+
+		//for horizontal lines
+		convertX(0), convertY(0), 0.0f,
+		convertX(800),convertY(0), 0.0f,
+
+		convertX(0), convertY(100), 0.0f,
+		convertX(800),convertY(100), 0.0f,
+
+		convertX(0), convertY(200), 0.0f,
+		convertX(800),convertY(200), 0.0f,
+
+		convertX(0), convertY(300), 0.0f,
+		convertX(800),convertY(300), 0.0f,
+
+		convertX(0), convertY(400), 0.0f,
+		convertX(800),convertY(400), 0.0f,
+
+		convertX(0), convertY(500), 0.0f,
+		convertX(800),convertY(500), 0.0f,
+
+		convertX(0), convertY(600), 0.0f,
+		convertX(800),convertY(600), 0.0f,
+
+		convertX(0), convertY(700), 0.0f,
+		convertX(800),convertY(700), 0.0f,
+
+		convertX(0), convertY(800), 0.0f,
+		convertX(800),convertY(800), 0.0f
+
 	};
 
-	GLuint indices[3]
-	{
-	//	0 ,3, 5, //Lower Left Triangle
-	0,1,2
-	//	3, 2, 4, //Lower Right Triangle
-	//	1, 4, 5 // Upper Triangle
-	};
+	GLuint indices[39] = {
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20
+		};
 
 public:
 	
@@ -142,6 +205,8 @@ public:
 
 	void run()
 	{
+
+		vertices[7] = convertY(900);
 		//Change the background colour
 		glClearColor(bgRed, bgGreen, bgBlue, 0.0f);
 
@@ -155,10 +220,11 @@ public:
 		glBindVertexArray(VAO);
 
 		//Draw the triangles using GL_TRIANGLES as a primitive
-		//drawTriangle();
+		drawTriangle(3,0);
+		drawLine(36,3);
 
 		//Swap the back buffer with the front buffer
-		//glfwSwapBuffers(window);
+		glfwSwapBuffers(window);
 
 		//Run all other events
 		glfwPollEvents();
@@ -249,6 +315,7 @@ public:
 		//Bind the VBO and assign it as a GL_ARRAY_BUFFER
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
 		//Give the vertices to the VBO
+		//vertices[7] = convertY(700);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
@@ -265,10 +332,22 @@ public:
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
   }
 
-	void drawTriangle()
+	void drawTriangle(int numVertices, int startIndex)
 	{
-		glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
-		glfwSwapBuffers(window);
+		// vertices[0] = convertX(x1);
+		// vertices[1] = convertX(y1);
+		// vertices[3] = convertX(x2);
+		// vertices[4] = convertX(y2);
+		// vertices[6] = convertX(x3);
+		// vertices[7] = convertX(y3);
+
+		//glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, (void*)1);
+		glDrawArrays(GL_TRIANGLES, startIndex, numVertices);
+	}
+
+	void drawLine(int numVertices, int startIndex) 
+	{
+		glDrawArrays(GL_LINES, startIndex, numVertices);
 	}
 
 	void setBackground(int red, int green, int blue)
